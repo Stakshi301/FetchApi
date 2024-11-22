@@ -7,64 +7,9 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="index.css">
     <title>Fetch api</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-      }
-
-      .main {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      #posts {
-        margin-top: 20px;
-      }
-      .post {
-        border: 1px solid #ddd;
-        padding: 10px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-      }
-      .post h3 {
-        margin: 0 0 5px;
-      }
-
-      .dark-theme {
-        background-color: #333;
-        color: #fff;
-      }
-      .light-theme {
-        background-color: #fff;
-        color: #000;
-      }
-
-      button {
-        padding: 10px 20px;
-        margin: 20px;
-        cursor: pointer;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-      }
-
-      .hidden {
-        display: none;
-      }
-
-      .mode{
-        position: absolute;
-        left: 30rem;
-        top: 5rem;
-      }
-
-      h1 {
-        text-align: center;
-      }
-    </style>
+  
   </head>
   <body class="light-theme">
     <h1>Fetch API And Mode Changer</h1>
@@ -81,51 +26,10 @@
       </div>
     </div>
 
-    <script>
-      const apiUrl = "https://jsonplaceholder.typicode.com/posts";
-      const dark = document.getElementById("dark");
-      const light = document.getElementById("light");
-      const postsContainer = document.getElementById("posts");
-      const fetchButton = document.getElementById("fetchPosts");
-
-      fetchButton.addEventListener("click", () => {
-        if (postsContainer.style.display === "block") {
-          postsContainer.style.display = "none";
-        } else {
-          postsContainer.style.display = "block";
-
-          fetch(apiUrl)
-            .then((response) => response.json())
-            .then((posts) => {
-              postsContainer.innerHTML = "";
-
-              posts.forEach((post) => {
-                const postElement = document.createElement("div");
-                postElement.classList.add("post");
-                postElement.innerHTML = `
-                  <h3>${post.title}</h3>
-                  <p>${post.body}</p>
-                `;
-                postsContainer.appendChild(postElement);
-              });
-            })
-            .catch((error) => console.error("Error fetching posts:", error));
-        }
-      });
-
-      dark.addEventListener("click", () => {
-        document.body.classList.remove("light-theme");
-        document.body.classList.add("dark-theme");
-        light.classList.remove("hidden");
-        dark.classList.add("hidden");
-      });
-
-      light.addEventListener("click", () => {
-        document.body.classList.remove("dark-theme");
-        document.body.classList.add("light-theme");
-        dark.classList.remove("hidden");
-        light.classList.add("hidden");
-      });
+    <script src="index.js">
+     
     </script>
   </body>
 </html>
+
+
